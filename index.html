@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI3Football — Home</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+:root{
+--bg:#020804;--card:#0a140b;--border:#1a2d1c;--green:#00e676;--green2:#4caf50;
+--gold:#ffd740;--white:#e8ede9;--dim:#5a6a5c;--blue:#2979ff;--orange:#ff6d00;
+--display:'Orbitron',sans-serif;--body:'Inter',sans-serif;--mono:'Courier New',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--white);font-family:var(--body);min-height:100vh;
+overflow-x:hidden}
+
+.hero{text-align:center;padding:60px 20px 40px;position:relative}
+.hero::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;
+background:linear-gradient(90deg,transparent,var(--green2),transparent)}
+.hero h1{font-family:var(--display);font-size:clamp(28px,6vw,52px);letter-spacing:8px;
+color:var(--green);font-weight:900;margin-bottom:6px;
+text-shadow:0 0 40px rgba(0,230,118,0.15)}
+.hero .tagline{font-size:14px;letter-spacing:4px;color:var(--dim);margin-bottom:16px}
+.hero .engine{font-family:var(--mono);font-size:11px;color:var(--gold);
+background:rgba(255,215,64,0.06);display:inline-block;padding:4px 16px;border-radius:2px;
+border:1px solid rgba(255,215,64,0.1)}
+
+.stats-bar{display:flex;justify-content:center;gap:32px;padding:24px 20px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat .n{font-family:var(--display);font-size:24px;color:var(--green)}
+.stat .l{font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:1px;margin-top:2px}
+
+.products{max-width:900px;margin:0 auto;padding:20px;display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+
+.product{background:var(--card);border:1px solid var(--border);border-radius:6px;
+padding:24px;transition:border-color 0.3s,transform 0.2s;cursor:pointer;
+text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden}
+.product:hover{border-color:var(--green2);transform:translateY(-2px)}
+.product::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+background:linear-gradient(90deg,var(--green),var(--gold));opacity:0;transition:opacity 0.3s}
+.product:hover::before{opacity:1}
+
+.product .icon{font-size:32px;margin-bottom:12px}
+.product h3{font-family:var(--display);font-size:13px;letter-spacing:2px;
+color:var(--green);margin-bottom:8px}
+.product p{font-size:13px;color:var(--dim);line-height:1.6;margin-bottom:12px}
+.product .tag{font-family:var(--mono);font-size:10px;padding:2px 8px;
+border-radius:2px;display:inline-block;margin-right:4px;margin-bottom:4px}
+.tag.free{background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.2)}
+.tag.pro{background:rgba(255,215,64,0.1);color:var(--gold);border:1px solid rgba(255,215,64,0.2)}
+.tag.live{background:rgba(41,121,255,0.1);color:var(--blue);border:1px solid rgba(41,121,255,0.2)}
+.tag.size{background:rgba(90,106,92,0.2);color:var(--dim);border:1px solid rgba(90,106,92,0.3)}
+
+.tech-section{max-width:900px;margin:32px auto;padding:0 20px}
+.tech-section h2{font-family:var(--display);font-size:13px;letter-spacing:3px;
+color:var(--green2);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.tech-item{background:var(--card);border:1px solid var(--border);border-radius:3px;
+padding:10px 14px;font-family:var(--mono);font-size:11px}
+.tech-item .k{color:var(--dim)}
+.tech-item .v{color:var(--white);float:right}
+
+.continents{max-width:900px;margin:24px auto;padding:0 20px}
+.continents h2{font-family:var(--display);font-size:13px;letter-spacing:3px;
+color:var(--green2);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.cont-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.cont-card{background:var(--card);border:1px solid var(--border);border-radius:3px;
+padding:12px;text-align:center}
+.cont-card .name{font-family:var(--display);font-size:11px;color:var(--green);letter-spacing:1px}
+.cont-card .matches{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:4px}
+
+.footer{text-align:center;padding:32px 20px;margin-top:40px;
+border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--dim)}
+.footer .co{color:var(--green2);letter-spacing:2px;margin-bottom:4px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>AI3FOOTBALL</h1>
+  <div class="tagline">AUTONOMOUS FOOTBALL SIMULATION</div>
+  <div class="engine">POWERED BY NETSWITCH v2.1.0 &bull; AI2ORBIT CO.</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="n">44</div><div class="l">MOVEMENTS</div></div>
+  <div class="stat"><div class="n">18</div><div class="l">CAMERAS</div></div>
+  <div class="stat"><div class="n">27</div><div class="l">FORMULAS</div></div>
+  <div class="stat"><div class="n">710</div><div class="l">TESTS</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">CONTINENTS</div></div>
+  <div class="stat"><div class="n">4</div><div class="l">PLATFORMS</div></div>
+</div>
+
+<div class="products">
+  <a class="product" href="https://anirudhatalmale6-alt.github.io/football-ai-3d/" target="_blank">
+    <div class="icon">&#127919;</div>
+    <h3>3D STADIUM</h3>
+    <p>Full 3D stadium with Three.js. 18 camera angles, spectator stands, floodlights, ad boards. Broadcast-quality live simulation.</p>
+    <span class="tag free">FREE</span>
+    <span class="tag live">WEBGL</span>
+    <span class="tag size">~120KB</span>
+  </a>
+  <a class="product" href="https://anirudhatalmale6-alt.github.io/football-ai-lite/" target="_blank">
+    <div class="icon">&#9917;</div>
+    <h3>LITE BROWSER</h3>
+    <p>Ultra-lightweight viewer for low bandwidth. Works offline as PWA. White editorial design, SVG pitch, zero dependencies.</p>
+    <span class="tag free">FREE</span>
+    <span class="tag size">14KB</span>
+    <span class="tag live">OFFLINE</span>
+  </a>
+  <a class="product" href="https://anirudhatalmale6-alt.github.io/ai3football-demo/" target="_blank">
+    <div class="icon">&#128202;</div>
+    <h3>ENGINE DEMO</h3>
+    <p>Interactive notebook for customers. Run the full test suite, explore formulas, watch live simulation, and verify all 710 checks.</p>
+    <span class="tag free">FREE</span>
+    <span class="tag live">INTERACTIVE</span>
+  </a>
+  <a class="product" href="https://github.com/anirudhatalmale6-alt/football-ai-desktop/releases/tag/v1.0.1" target="_blank">
+    <div class="icon">&#128187;</div>
+    <h3>DESKTOP APP</h3>
+    <p>Windows .exe installer and Linux AppImage. Full simulation with EULA, cost analysis, JSON/CSV data export.</p>
+    <span class="tag free">FREE</span>
+    <span class="tag size">WIN/LINUX</span>
+  </a>
+  <div class="product" style="cursor:default">
+    <div class="icon">&#128241;</div>
+    <h3>ANDROID APP</h3>
+    <p>Native Android client with full gameplay, real-time cost analysis, and 1/3 prediction engine. Free tier and Pro subscription.</p>
+    <span class="tag free">FREE</span>
+    <span class="tag pro">PRO $4.99/MO</span>
+    <span class="tag live">COMING FRIDAY</span>
+  </div>
+  <div class="product" style="cursor:default">
+    <div class="icon">&#127909;</div>
+    <h3>LIVE STREAMS</h3>
+    <p>Twitch, YouTube, and social media channels with continuous AI3Football matches and playback.</p>
+    <span class="tag pro">PREMIUM</span>
+    <span class="tag live">COMING FRIDAY</span>
+  </div>
+</div>
+
+<div class="tech-section">
+  <h2>ENGINE SPECIFICATIONS</h2>
+  <div class="tech-grid">
+    <div class="tech-item"><span class="k">Force formula</span><span class="v">F=0.0023*w*s^e</span></div>
+    <div class="tech-item"><span class="k">Ball weight</span><span class="v">0.0006998</span></div>
+    <div class="tech-item"><span class="k">Surface coeff</span><span class="v">0.03</span></div>
+    <div class="tech-item"><span class="k">Exponent</span><span class="v">1.001234</span></div>
+    <div class="tech-item"><span class="k">Prediction</span><span class="v">1/3 mark (min 30)</span></div>
+    <div class="tech-item"><span class="k">Kick types</span><span class="v">6 types</span></div>
+    <div class="tech-item"><span class="k">Spin types</span><span class="v">4 types</span></div>
+    <div class="tech-item"><span class="k">Bounce modes</span><span class="v">4 constants</span></div>
+    <div class="tech-item"><span class="k">Force dir</span><span class="v">Up/Down/Traveler</span></div>
+    <div class="tech-item"><span class="k">Trig chain</span><span class="v">cos3/sin2/tan3</span></div>
+    <div class="tech-item"><span class="k">Referee AI</span><span class="v">Built-in</span></div>
+    <div class="tech-item"><span class="k">Formation</span><span class="v">1/6/7/8 behind</span></div>
+    <div class="tech-item"><span class="k">Cost model</span><span class="v">TV production</span></div>
+    <div class="tech-item"><span class="k">C++ std</span><span class="v">C++17</span></div>
+    <div class="tech-item"><span class="k">Build</span><span class="v">CMake 3.14+</span></div>
+    <div class="tech-item"><span class="k">Platforms</span><span class="v">Win/Linux/Mac/IBM</span></div>
+  </div>
+</div>
+
+<div class="continents">
+  <h2>MATCH CONTINENTS</h2>
+  <div class="cont-grid">
+    <div class="cont-card">
+      <div class="name">EUROPE</div>
+      <div class="matches">FIN v SWE, GER v FRA, ESP v ITA, ENG v POR, NED v BEL</div>
+    </div>
+    <div class="cont-card">
+      <div class="name">AFRICA</div>
+      <div class="matches">NGA v GHA, EGY v MAR, SEN v CIV, CMR v ALG</div>
+    </div>
+    <div class="cont-card">
+      <div class="name">ASIA</div>
+      <div class="matches">JPN v KOR, AUS v IRN, SAU v QAT, CHN v IND</div>
+    </div>
+    <div class="cont-card">
+      <div name="name">AMERICAS</div>
+      <div class="matches">BRA v ARG, MEX v USA, COL v URU, CHI v PER</div>
+    </div>
+    <div class="cont-card">
+      <div class="name">OCEANIA</div>
+      <div class="matches">NZL v FJI, PNG v SAM, TAH v NCL</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="co">AI3FOOTBALL &mdash; NETSWITCH ENGINE &mdash; AI2ORBIT CO.</div>
+  <div>Copyright &copy; AI2ORBIT Co. 2026. All rights reserved.</div>
+</div>
+
+</body>
+</html>
